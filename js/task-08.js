@@ -19,23 +19,15 @@ const pswd = form.elements.password;
 
 function onFormSubmit(event) {
   event.preventDefault();
+  const { email, password } = event.currentTarget;
+  const emailValue = email.value.trim();
+  const passwordValue = password.value;
 
-  const formElements = event.currentTarget.elements;
-  const mail = formElements.email.value;
-  const password = formElements.password.value;
-
-  if (email.value === "" || pswd.value === "") {
+  if (emailValue === "" || passwordValue === "") {
     return alert("Bсі поля повинні бути заповнені");
   }
   alert("Форма сформована");
-  const formData = { mail, password };
-  console.log(formData);
+  const formData = { emailValue, passwordValue };
+
   event.currentTarget.reset();
 }
-
-// const formData = new FormData(event.currentTarget);
-// console.log(formData);
-// formData.forEach((value, name) => {
-// console.log("name", name);
-// console.log("value", value);
-// })
